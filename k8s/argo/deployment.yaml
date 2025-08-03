@@ -48,7 +48,7 @@ metadata:
     kubernetes.io/ingress.class: "nginx"  # Or your ingress controller
 spec:
   rules:
-  - host: todo.yourdomain.com  # Replace with your domain or IP
+  - host: app.mark.online  # Replace with your domain or IP
     http:
       paths:
       - path: /
