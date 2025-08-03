@@ -1,11 +1,10 @@
+# app-deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp-deployment
-  labels:
-    app: myapp
+  name: myapp
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: myapp
@@ -15,7 +14,16 @@ spec:
         app: myapp
     spec:
       containers:
-      - name: myapp-container
+      - name: myapp
         image: megmegmeg/myapp
+        env:
+        - name: DB_HOST
+          value: "mysql"        # Name of the service
+        - name: DB_USER
+          value: "root"
+        - name: DB_PASSWORD
+          value: "password"
+        - name: DB_NAME
+          value: "todo_list"
         ports:
         - containerPort: 5000
