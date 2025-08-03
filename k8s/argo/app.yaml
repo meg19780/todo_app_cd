@@ -15,9 +15,20 @@ spec:
     spec:
       containers:
       - name: my-container
-        image: megmegmeg/myapp:latest  # Replace with your image
+        image: megmegmeg/myapp:latest  # Your application's image
         ports:
         - containerPort: 80
+        env:
+        - name: DB_HOST
+          value: mysql  # Service name of the MySQL deployment
+        - name: DB_PORT
+          value: "3306"
+        - name: DB_NAME
+          value: mydb
+        - name: DB_USER
+          value: user
+        - name: DB_PASSWORD
+          value: password
 ---
 apiVersion: v1
 kind: Service
@@ -49,3 +60,43 @@ spec:
             name: my-app-service
             port:
               number: 80
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+spec:
+  ports:
+  - port: 3306
+    targetPort: 3306
+  selector:
+    app: mysql
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - name: mysql
+        image: mysql:8.0
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: rootpass
+        - name: MYSQL_DATABASE
+          value: mydb
+        - name: MYSQL_USER
+          value: user
+        - name: MYSQL_PASSWORD
+          value: password
+        ports:
+        - containerPort: 3306
+
