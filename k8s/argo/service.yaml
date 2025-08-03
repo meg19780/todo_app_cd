@@ -1,11 +1,17 @@
 apiVersion: v1
 kind: Service
 metadata:
+  creationTimestamp: null
+  labels:
+    app: todo_app
   name: myapp-service
 spec:
-  type: LoadBalancer  # or ClusterIP if exposing via Ingress
-  selector:
-    app: myapp
   ports:
-  - port: 80
+  - port: 5000
+    protocol: TCP
     targetPort: 5000
+  selector:
+    app: todo_app
+  type: clusterIp
+status:
+  loadBalancer: {}
