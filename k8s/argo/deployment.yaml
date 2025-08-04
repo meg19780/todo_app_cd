@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: todo-container
-        image: megmegmeg/todo_app
+        image: megmegmeg/testver
         ports:
         - containerPort: 5000
         env:
