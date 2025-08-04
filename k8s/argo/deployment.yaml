@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: todo-container
-        image: megmegmeg/myapp1
+        image: megmegmeg/myapp
         ports:
         - containerPort: 5000
         env:
