@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: my-container
-        image: megmegmeg/myapp  # Your application's image
+        image: megmegmeg/todo_app  # Your application's image
         ports:
         - containerPort: 5000
         env:
