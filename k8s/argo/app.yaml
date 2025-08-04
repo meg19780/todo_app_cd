@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: my-container
-        image: yp3yp3/to_do_list  # Your application's image
+        image: megmegmeg/todo_app  # Your application's image
         ports:
         - containerPort: 80
         env:
