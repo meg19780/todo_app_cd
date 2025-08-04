@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: my-container
-        image: megmegmeg/myapp:latest  # Your application's image
+        image: yp3yp3/to_do_list  # Your application's image
         ports:
         - containerPort: 80
         env:
