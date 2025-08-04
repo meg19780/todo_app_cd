@@ -6,7 +6,7 @@ metadata:
     kubernetes.io/ingress.class: "nginx"  # or your ingress controller
 spec:
   rules:
-  - host: app.mark.online  # Change to your domain or use IP
+  - host: app1.mark.online  # Change to your domain or use IP
     http:
       paths:
       - path: /
