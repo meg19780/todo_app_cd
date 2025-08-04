@@ -17,7 +17,7 @@ spec:
       - name: my-container
         image: megmegmeg/myapp1  # Your application's image
         ports:
-        - containerPort: 80
+        - containerPort: 5000
         env:
         - name: DB_HOST
           value: mysql  # Service name of the MySQL deployment
@@ -59,7 +59,7 @@ spec:
           service:
             name: my-app-service
             port:
-              number: 80
+              number: 5000
 apiVersion: v1
 kind: Service
 metadata:
